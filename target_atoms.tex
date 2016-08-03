@@ -1,0 +1,29 @@
+
+\begin{center}
+
+	\begin{tikzpicture}
+
+	\node (trainings)[scale=\scale] at (0,0){
+		\begin{tabular}{|c|}
+		\hline 
+		\bf logical forms \\ \hline
+		\wl{area(IA)}\\ \hline
+		\wl{city(OH)} \\ \hline
+		\wl{city(IA)}\\ \hline
+		\end{tabular}
+	};
+	
+	\node (targetAtoms)[scale=\scale] at (10,0){
+		\begin{tabular}{|c|}
+		\hline
+		\bf target atoms \\ \hline
+		\{\wl{area}, \wl{IA}\}\\ \hline
+		\{\wl{city}, \wl{OH}\} \\ \hline
+		\{\wl{city}, \wl{IA}\}\\ \hline
+		\end{tabular}
+	};
+	\draw[pil] (trainings.east) -- (targetAtoms.west);
+	\end{tikzpicture}
+\end{center}
+
+

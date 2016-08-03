@@ -1,0 +1,38 @@
+\centering
+\begin{tikzpicture}
+\newcommand{\sscale}{0.6}
+
+	
+	\node (B) [scale=\sscale,anchor=north west]at (0,0){
+		\begin{tabular}{|c|}
+		\hline \bf safe set  \\ \hline
+		\nl{Ohio}\\
+		\nl{cities in}\\
+		\nl{area of Ohio}\\
+		\nl{area of cities in}\\
+		\\ \\
+		\hline
+		\end{tabular}
+	};
+%I really couldn't fit 3dots or vdots or multicolumns here :( I think there should be something with vdots!!!
+\fill (3,-5.5) circle (0.1);  
+\fill (3,-6) circle (0.1);
+\fill (3,-6.5) circle (0.1);
+	
+	\node (C) [scale=\sscale,anchor=north west]at (10,0){
+		\begin{tabular}{|c|}
+		\hline \bf not in the safe set \\ \hline
+		\nl{Texas}\\
+		\nl{Ohio area}\\
+		\nl{Iowa cities} \\
+	\nl{rivers in Texas area}\\
+		\\ \\
+		\hline
+		\end{tabular}
+	};
+
+\fill (13.5,-5.5) circle (0.1);
+\fill (13.5,-6)   circle (0.1);
+\fill (13.5,-6.5) circle (0.1);
+
+\end{tikzpicture}

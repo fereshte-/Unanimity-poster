@@ -1,0 +1,49 @@
+\newcommand{\scale}{0.75}
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    punkt/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           text width=6.5em,
+           minimum height=2em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+line width=6,
+           ->,
+           thick,
+           scale=8,
+		}
+}
+
+\begin{center}
+\begin{tikzpicture}
+
+\node (trainings)[scale=\scale] at (0,0){
+	\begin{tabular}{|c|}
+	\hline 
+	{\bf utterences} \\ \hline
+	\nl{area of Iowa}\\ \hline
+	\nl{cities in Ohio}\\ \hline
+	\nl{cities in Iowa}\\ \hline
+	\end{tabular}
+};
+
+\node (sourceAtoms)[scale=\scale] at (10,0){
+	\begin{tabular}{|c|}
+	\hline
+	 \bf source atoms \\ \hline
+	\{\nl{area}, \nl{of}, \nl{Iowa}\}\\ \hline
+	\{\nl{cities}, \nl{in}, \nl{Ohio}\}\\ \hline
+	\{\nl{cities}, \nl{in}, \nl{Iowa}\} \\ \hline
+	\end{tabular}
+};
+
+\draw[pil] (trainings.east) -- (sourceAtoms.west);
+\end{tikzpicture}
+\end{center}
+
+

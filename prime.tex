@@ -1,0 +1,66 @@
+
+\tikzstyle{bluePoint} = [circle,fill=blue,minimum size=15pt, inner sep=0pt]
+\tikzstyle{redPoint} = [circle, fill=red, minimum size =15pt, inner sep=0pt]
+\tikzstyle{line} = [draw,thick,-]
+
+
+
+\begin{tikzpicture}[auto,swap]
+
+
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (1,3);
+	\coordinate (C) at (3,1);
+	\newcommand{\dis}{10}
+	\coordinate (D) at (\dis + 0,0);
+	\coordinate (E) at (\dis + 1,3);
+	\coordinate (F) at (\dis + 3,1);
+	
+	
+	\node[bluePoint] (Ap) at (A) {};
+	\node[bluePoint] (Bp) at (B) {};
+	\node[bluePoint] (Cp) at (C) {};
+		
+	\node[redPoint] (Dp) at (D) {};
+	\node[redPoint] (Ep) at (E) {};
+	\node[redPoint] (Fp) at (F) {};
+	
+	\draw  (-3,-3) rectangle (16,6);
+	
+	\draw (8,-3) -- (8,6);
+	\draw (7,-3) -- (7,6);	
+	\draw (6,-3) -- (6,6);
+	\draw (9,-3) -- (9,6);
+	\draw (5,-3) -- (5,6);
+	\draw (4,-3) -- (4,6);
+
+	\draw (2,-3) -- (10,6);
+	\draw (1,-3) -- (9,6);
+	\draw (3,-3) -- (11,6);
+	\draw (2,-3) -- (8,6);
+	\draw (2,-3) -- (7,6);
+	\draw (4,-3) -- (11,6);
+	\draw (4,-3) -- (11,6);
+	\draw (0,-3) -- (13,6);
+
+	\draw (12,-3) -- (0,6);
+	\draw (11,-3) -- (-1,6);
+	\draw (13,-3) -- (1,6);
+	\draw (12,-3) -- (-2,6);
+	\draw (12,-3) -- (-3,6);
+	\draw (13.5,-3) -- (1,6);
+	\draw (14,-3) -- (0,6);
+	\draw (10,-3) -- (3,6);
+
+	\fill[blue,opacity=0.2] (-3,-1) -- (A) -- (C) -- (B) -- (-3,4.5)--cycle;
+	
+	\fill[red,opacity=0.2] (16,-2) -- (D) -- (E)  -- (16,5)--cycle;
+	
+	\node (always blue) at (0,2) {\small always blue};
+	\node (always red) at (\dis+3, 2) {\small always red};
+%	\node (cannot guarantee) at (\dis/2+1, 4) {\small cannot guarantee};
+
+\end{tikzpicture}
+
+
+

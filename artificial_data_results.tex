@@ -1,0 +1,241 @@
+\pgfplotsset{compat=1.6} 
+\newcommand{\pOne}{0.2}
+\newcommand{\pTwo}{0.5}
+\newcommand{\pThree}{0.7}
+\newcommand{\nTrial}{100}
+%\pgfplotsset{compat=1.11}
+
+\pgfplotsset{
+x tick label style={/pgf/number format/fixed,
+        /pgf/number format/precision=1,
+		font=\tiny},
+y tick label style={/pgf/number format/fixed,
+        /pgf/number format/precision=1,
+		font=\tiny},
+y label style={font=\tiny},
+x label style={font=\tiny},
+legend style={font=\fontsize{10}{5}\selectfont},
+   }%
+\begin{tabular}{ll}
+\begin{tikzpicture}
+   \begin{axis}[
+   xmax=1.1,xmin=0,
+   ymin= 0,ymax=1.1,
+   xlabel=\emph{Fraction of data},
+ylabel=\emph{Recall},
+   xtick={0,0.3,0.6,...,1},
+   ytick={0,0.2,0.4,...,1},
+legend style={legend pos=south east},
+ ymajorgrids=true,
+    grid style=dashed,
+legend cell align=left,
+   ]
+\addplot coordinates{
+(0.1,1.0)
+(0.2,1.0)
+(0.3,1.0)
+(0.4,1.0)
+(0.5,1.0)
+(0.6,1.0)
+(0.7,1.0)
+(0.8,1.0)
+(0.9,1.0)
+(1,1.0)
+};
+\addplot coordinates{
+(0.1,0.0)
+(0.2,0.08)
+(0.3,0.5)
+(0.4,0.56)
+(0.5,0.56)
+(0.6,0.56)
+(0.7,0.62)
+(0.8,0.94)
+(0.9,0.94)
+(1,1.0)
+};
+\addplot coordinates{
+(0.1,0.0)
+(0.2,0.44)
+(0.3,0.56)
+(0.4,0.62)
+(0.5,0.68)
+(0.6,1.0)
+(0.7,1.0)
+(0.8,1.0)
+(0.9,1.0)
+(1,1.0)
+};
+\addplot coordinates{
+(0.1,0.04)
+(0.2,0.46)
+(0.3,0.58)
+(0.4,0.66)
+(0.5,0.72)
+(0.6,1.0)
+(0.7,1.0)
+(0.8,1.0)
+(0.9,1.0)
+(1,1.0)
+};
+
+
+
+    \legend{ precision (all), recall (ILP), recall (LP), recall (LS)}
+    \end{axis}
+    \end{tikzpicture}&
+\begin{tikzpicture}
+   \begin{axis}[
+   xmax=152,xmin=0,
+   ymin= 0,ymax=1.1,
+   xlabel=number of mistakes,
+ylabel=\emph{Recall},
+%    y label style={at={(axis description cs:0.15,0.5)},anchor=south},
+   xtick={0,30,60,...,150},
+   ytick={0,0.2,0.4,...,1},
+legend style={legend pos=south west,font=\fontsize{10}{5}\selectfont},
+ ymajorgrids=true,
+    grid style=dashed,
+legend cell align=left,
+   ]
+\addplot coordinates{
+	(0,    1.0)
+	(30,    1.0)
+	(60,    1.0)
+	(90,    1.0)
+	(120,    1.0)
+	(150,    1.0)
+
+};
+
+\addplot coordinates{
+	(0,    1.0)
+	(30,    1.0)
+	(60,    0.84)
+	(90,    0.28)
+	(120,    0.28)
+	(150,    0.0)
+};
+    \legend{precision (ILP), recall (ILP)}
+    \end{axis}
+    \end{tikzpicture}\\
+
+
+
+   \begin{tikzpicture}
+   \begin{axis}[
+   xmax=1.1,xmin=0,
+   ymin= 0.3,ymax=1.1,
+   xlabel=\emph{Recall},
+ylabel=\emph{Precision},
+ %   y label style={at={(axis description cs:0.15,0.5)},anchor=south},
+   xtick={0,0.2,0.4,...,1},
+   ytick={0,0.2,0.4,...,1},
+legend style={legend pos=south east,font=\fontsize{10}{5}\selectfont},
+ %   legend pos= south east,
+    legend columns=2, 
+ ymajorgrids=true,
+legend cell align=right,
+    grid style=dashed,   
+   ]
+\addplot coordinates{
+(0.04,1.0)
+};
+\addplot coordinates{
+(0.04,0.5)
+(0.1,0.5555555555555556)
+(0.24,0.5714285714285714)
+(0.26,0.5)
+(0.28,0.4375)
+(0.3,0.3488372093023256)
+};
+\addplot coordinates{
+(0.48,1.0)
+};
+\addplot coordinates{
+(0.48,0.8571428571428571)
+(0.48,0.8571428571428571)
+(0.5,0.8333333333333334)
+(0.5,0.8064516129032258)
+(0.56,0.717948717948718)
+(0.64,0.64)
+};
+\addplot coordinates{
+(0.78,1.0)
+};
+\addplot coordinates{
+(0.78,0.9512195121951219)
+(0.78,0.9512195121951219)
+(0.78,0.9512195121951219)
+(0.78,0.9069767441860465)
+(0.82,0.8913043478260869)
+(0.84,0.84)
+};
+  \legend{
+	$\pointM$(\pOne), 
+ 	$\ourM$\ (\pOne), 
+ 	$\pointM$(\pTwo), 
+ 	$\ourM$\ (\pTwo),
+ 	$\pointM$(\pThree), 
+ 	$\ourM$\ (\pThree)}
+    \end{axis}
+\end{tikzpicture}&
+   \begin{tikzpicture}
+   \begin{axis}[
+   xmax=1.1,xmin=0,
+   ymin= 0.3,ymax=1.1,
+   xlabel=\emph{Recall},
+ylabel=\emph{Precision},
+ %   y label style={at={(axis description cs:0.15,0.5)},anchor=south},
+   xtick={0,0.2,0.4,...,1},
+   ytick={0,0.2,0.4,...,1},
+legend style={legend pos=south east,font=\fontsize{10}{5}\selectfont},
+    legend columns=2, 
+ ymajorgrids=true,
+legend cell align=left,
+    grid style=dashed,   
+   ]
+
+\addplot coordinates{
+(0.04,1.0)
+};
+\addplot coordinates{
+(0.2,1.0)
+(0.2,1.0)
+(0.2,0.9090909090909091)
+(0.22,0.7857142857142857)
+(0.24,0.5454545454545454)
+(0.24,0.35294117647058826)
+};
+\addplot coordinates{
+(0.52,1.0)
+};
+\addplot coordinates{
+(0.62,1.0)
+(0.62,1.0)
+(0.7,1.0)
+(0.7,0.9459459459459459)
+(0.7,0.8974358974358975)
+(0.72,0.8372093023255814)
+};
+\addplot coordinates{
+(0.78,1.0)
+};
+\addplot coordinates{
+(0.8,1.0)
+(0.8,1.0)
+(0.8,1.0)
+(0.82,1.0)
+(0.82,0.9111111111111111)
+(0.84,0.84)
+};
+  \legend{
+	$\pointM$(\pOne), 
+ 	$\ourM$\ (\pOne), 
+ 	$\pointM$(\pTwo), 
+ 	$\ourM$\ (\pTwo),
+ 	$\pointM$(\pThree), 
+ 	$\ourM$\ (\pThree)}
+  \end{axis}
+\end{tikzpicture}
+\end{tabular}

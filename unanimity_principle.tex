@@ -1,0 +1,164 @@
+\begin{figure}
+	\newcommand{\scale}{0.6}
+	\tikzset{
+    >=stealth',
+    inputBox/.style={
+           rectangle,
+			inner sep=0,
+           rounded corners=0.1em,
+           draw=black,
+           text centered,
+			scale=\scale
+},
+   mappingBox/.style={
+           rectangle,
+			inner sep=0,
+           rounded corners=0.3em,
+           draw=black,
+			fill=gray!30,
+           text centered,
+			scale=\scale
+},
+    pil/.style={
+line width=6,
+           ->,
+           thick,
+		}
+}
+
+		
+			\begin{tikzpicture}%[scale=\scale]
+			
+			
+			
+			\def\x{4.4}
+			\def\y{3}
+			\def\yy{2.5}
+			
+			
+			\def\spx{0.2}
+			\def\spy{0.2}
+			
+			
+			\node (trainings)[inputBox] at (1.5*\x,\y+\yy+4*\spy){
+				\begin{tabular}{l|l}
+				\bf input & \bf output \\ 	\hline 
+				\nl{area of Iowa}& \wl{area(IA)}\\
+				\nl{cities in Ohio}&  \wl{city(OH)} \\
+				\nl{cities in Iowa} & \wl{city(IA)}\\
+
+				\end{tabular}
+			};
+			
+			\node (A)[mappingBox] at (0,\yy){
+				\begin{tabular}{l}
+				\bf mapping 1 \\ 	
+				\end{tabular}
+			};
+
+
+			
+			\node (B) [mappingBox]at (\x,\yy){
+				\begin{tabular}{l}
+				\bf mapping 2 \\				
+				\end{tabular}
+			};
+			
+			\node (C) [mappingBox]at (2*\x+4*\spx,\yy){
+				\begin{tabular}{l}
+				 \bf mapping k \\ 
+				\end{tabular}
+			};
+
+				\node (AA)[inputBox] at (0,0){
+				\begin{tabular}{l}
+				\bf output 1 \\ \hline
+				\small\wl{area(OH)}\\
+				\small\wl{area(OH)}\\
+				%\small\wl{city} \\
+				\end{tabular}
+			};
+			
+			\node (BB) [inputBox]at (\x,0){
+				\begin{tabular}{l}
+				\bf output 2 \\ \hline
+				\small\wl{area(OH)}\\
+				\small\wl{area(OH)}\\
+				%\small\wl{city} \\
+				\end{tabular}
+			};
+			
+			\node (CC) [inputBox]at (2*\x+4*\spx,0){
+				\begin{tabular}{l}
+				\bf output k \\ \hline
+				\small\wl{area(OH)}\\
+				\small\wl{OH}\\
+				%\small\wl{city} \\
+				\end{tabular}
+			};
+			
+			
+			\node [left] at (trainings.west) {\tiny training examples};
+			
+			
+			\node (testingsInput)[inputBox] at (-1*\x-3*\spx-\spx,0){
+				\begin{tabular}{l}
+				\bf input \\ \hline
+				\small\nl{area of Ohio}\\ 
+				\small\nl{Ohio area}\\ 
+				%\small\nl{cities in}\\ \hline
+				\end{tabular}
+			};
+			
+			\node (testingsOutput)[inputBox] at (4*\x+4*\spx,0){
+				\begin{tabular}{l}
+				\bf output \\ \hline
+				\small\wl{area(Ohio)}\\ 
+				\small don't know \\ 
+				%\small \wl{city} \\ \hline
+				\end{tabular}
+			};
+			
+			\node [above] at (testingsInput.north) {\tiny testing examples};
+			
+			%\node [above] at (testingsOutput.north) {\tiny test examples};
+			
+			\def\checkmark{\tikz\fill[fill=green,scale=1.5](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+			
+			\newcommand{\Cross}{$\mathbin{\tikz [line width=.5ex, red,scale=0.75] \draw (0,0) -- (1,1) (0,1) -- (1,0);}$}%
+			
+			\node (testingsResults)[scale=\scale] at (3*\x + 2*\spx,0){
+				\begin{tabular}{c}
+				\small \bf unanimity \\ 
+				\checkmark\\
+				\Cross\\
+			%	\checkmark\\
+				\end{tabular}
+			};
+			
+			\node (3dots)[] at (1.5*\x+2*\spx,\yy){...};
+			\node (3dots)[] at (1.5*\x+2*\spx,0){...};
+			
+    \node[fit={(-\x/2-\spx,-\y/2-2*\spy) (3.6*\x,\y/2+\yy-\spy)}, inner sep=0pt, draw=black,rounded corners=.3em] (rect) {};
+
+		%	\node (rec)[scale=\scale] { (-\x/2,-\y/2) rectangle (3.6*\x,\y/2+\yy)};
+			
+			\draw[pil, shorten >=3pt] (rect.north) -- (A.north);
+			\draw[pil, shorten >=2pt] (rect.north) -- (B.north);
+			\draw[pil, shorten >=3pt] (rect.north) -- (C.north);
+			
+			\draw[pil] (trainings.south) -- (rect.north);
+			
+			\draw[pil] (3.6*\x,0) -- (testingsOutput.west);
+			\draw[pil] (testingsInput.east) -- (-\x/2-\spx, 0);
+			
+			
+			\draw[double,-implies] (A.south) -- (AA.north);
+			\draw[double,-implies] (B.south) -- (BB.north);
+			\draw[double,-implies] (C.south) -- (CC.north);
+			
+		
+
+\end{tikzpicture}
+
+\end{figure}

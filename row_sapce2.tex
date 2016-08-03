@@ -1,0 +1,39 @@
+\newcommand{\scc}{0.65}
+\begin{center}
+\begin{tikzpicture}
+
+		\node[scale=\scc] (S) at (0,0) {S =  $\begin{blockarray}{lccccccc}
+		&\matindex{\nl{area}} & \matindex{\nl{of}} & \matindex{\nl{Ohio}} & \matindex{\nl{cities}} & \matindex{\nl{in}} & \matindex{\nl{Iowa}}&\\	
+		\begin{block}{l[cccccc]c}
+		\matindex{\nl{area of Iowa}} & 1 & 1 & 0 & 0 & 0 & 1 & \color{red} 1\\
+		\matindex{\nl{cities in Ohio}} & 0 & 0 & 1 & 1 & 1 & 0 &\color{red} 1\\
+		\matindex{\nl{cities in Iowa}} & 0 & 0 & 0 & 1 & 1 & 1 &\color{red} -1\\
+		\end{block}
+		\end{blockarray}$};
+	
+		\node[scale=\scc,below] (Se) at (S.south) { $\begin{blockarray}{lccccccc}
+			\color{white}&\matindex{\nl{area}} & \matindex{\nl{of}} & \matindex{\nl{Ohio}} & \matindex{\nl{cities}} & \matindex{\nl{in}} & \matindex{\nl{Iowa}}&\\		
+			\begin{block}{l[cccccc]c}
+			\matindex{{\large x=} \ \nl{area of Ohio}} & 1 & 1 & 1 & 0 & 0 & 0 &\color{white} 0\\
+			\end{block}
+			\end{blockarray}$};
+
+
+		\node[scale=\scc] (T) at (13,0) {T = $\begin{blockarray}{lccccc}
+		&\matindex{\wl{area}} & \matindex{\wl{city}} & \matindex{\wl{OH}} & \matindex{\wl{IA}} &\\	
+		\begin{block}{l[cccc]c}
+		\matindex{\wl{area(IA)}} & 1 & 0 & 0 & 1 & \color{red} 1\\
+		\matindex{\wl{city(OH)}} & 0 & 1 & 1 & 0 & \color{red} 1\\ 
+		\matindex{\wl{city(IA)}} & 0 & 1 & 0 & 1 & \color{red} -1\\
+		\end{block}
+		\end{blockarray}$};
+	
+	
+		\node[below, scale=\scc] (T) at (T.south) { $\begin{blockarray}{lccccc}
+			&\matindex{\wl{area}} & \matindex{\wl{city}} & \matindex{\wl{OH}} & \matindex{\wl{IA}}&\\	
+			\begin{block}{l[cccc]c}
+			\matindex{{\large y=} \ \wl{area(OH)}} & 1 & 0 & 1 & 0 &\color{white} 0\\
+			\end{block}
+			\end{blockarray}$};
+	\end{tikzpicture}
+\end{center}	

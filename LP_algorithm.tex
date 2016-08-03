@@ -1,0 +1,37 @@
+%\scalebox{0.85}{
+\begin{algorithm*}
+\caption{
+  Our linear programming approach.
+}
+\label{alg:two_points_schema}
+\newcommand{\scale}{0.9}
+\scalebox{\scale}{
+\begin{minipage}{9cm}
+\begin{algorithmic}
+\Procedure{Train}{}\\
+\textbf{Input:} Training examples\\
+\textbf{Output:} Generic mappings $(M_1, M_2)$
+	\State Define $\sClp$ as explained in \refeqn{consistentLP}.
+  \State Compute $M_1$ and a radius $R$ by solving an LP \refeqn{slickLP}.
+  \State Sample $M_2$ from a ball with radius $R$ 
+around $M_1$.
+  \State \Return $(M_1, M_2)$
+\EndProcedure
+\end{algorithmic}
+\end{minipage}}%
+\scalebox{\scale}{
+ \begin{minipage}{9cm}
+\begin{algorithmic}
+\Procedure{Test}{}\\
+  \textbf{Input:} input $x$, mappings $(M_1, M_2)$ \\%from training \\
+  \textbf{Output:} A guaranteed correct $y$ or ``don't know''
+  \State Compute $y_1 = xM_1$ and $y_2 = xM_2$.
+  \If{$y_1=y_2$}
+	 \Return $y_1$
+\Else\ \Return ``don't know''
+\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{minipage}}
+\end{algorithm*}
+%}

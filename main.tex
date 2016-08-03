@@ -1,0 +1,367 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Jacobs Landscape Poster
+% LaTeX Template
+% Version 1.1 (14/06/14)
+%
+% Created by:
+% Computational Physics and Biophysics Group, Jacobs University
+% https://teamwork.jacobs-university.de:8443/confluence/display/CoPandBiG/LaTeX+Poster
+% 
+% Further modified by:
+% Nathaniel Johnston (nathaniel@njohnston.ca)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[final,table]{beamer}
+
+\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+
+\usetheme{confposter} % Use the confposter theme supplied with this template
+
+\setbeamercolor{block title}{fg=ngreen,bg=white} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
+\setbeamercolor{block alerted title}{fg=white,bg=dblue!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=dblue!10} % Colors of the body of highlighted blocks
+% Many more colors are available for use in beamerthemeconfposter.sty
+
+%-----------------------------------------------------------
+% Define the column widths and overall poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% In this template, the separation width chosen is 0.024 of the paper width and a 4-column layout
+% onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g. (1-(4+1)*0.024)/4 = 0.22
+% Set twocolwid to be (2*onecolwid)+sepwid = 0.464
+% Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\paperwidth}{48in} % A0 width: 46.8in
+\setlength{\paperheight}{36in} % A0 height: 33.1in
+\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.22\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
+\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
+\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+%-----------------------------------------------------------
+\usepackage{etex}
+\usepackage{graphicx}  % Required for including images
+\usepackage{booktabs} % Top and bottom rules for tables
+\usepackage{tikz}
+\usepackage{blkarray}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{amsthm} 
+\usepackage{amssymb}
+\usepackage{ifthen}
+\usepackage{pgfplots}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{relsize}
+\usepackage{times}
+\usepackage{url}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{comment}
+%\usepackage{floatrow}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{multirow}
+\usepackage{xcolor}
+\captionsetup{compatibility=false}
+
+
+\usetikzlibrary{decorations.shapes,shapes.multipart,matrix,positioning,arrows,intersections,tikzmark,patterns,fit,calc,arrows.meta}
+
+\input{macro}
+\input{std-macro}
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\title{\fontsize{75}{0}\selectfont Unanimous Prediction For 100\% Precision With Application To Learning Semantic Mappings} % Poster title
+
+\author{Fereshte Khani, Martin Rinard, Percy Liang} % Author(s)
+
+\institute{Stanford University} % Institution(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\addtobeamertemplate{headline}{} 
+{
+\begin{tikzpicture}[remember picture,overlay] 
+\node [shift={(6 cm,-9cm)}] at (current page.north west) {\includegraphics[height=5cm]{nlp-logo-10x10.jpg}}; 
+\end{tikzpicture} 
+}
+
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+
+\setlength{\belowcaptionskip}{2ex} % White space under figures
+\setlength\belowdisplayshortskip{2ex} % White space under equations
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+\begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The first column
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Introduction}
+If a user asks a system \nlq{How many painkillers should I take?},
+%In user-facing or safety-critical applications,
+it is much better for the system to say ``don't know''
+rather than making a costly incorrect prediction.
+\end{block}
+%----------------------------------------------------------------------------------------
+%	Analogy
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Analogy}
+
+
+\begin{figure}\centering
+\input{prime}
+\end{figure}
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	Goal
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Goal}
+We present a system which {\bf learns}
+a {\color{BlueViolet} semantic mapping} which {\bf guarantees 100\% precision} under its model assumptions.
+
+\centering
+ {\color{BlueViolet} \nl{area of Ohio} $\rightarrow$ \wl{\{area, OH\}}}
+\end{block}
+
+\begin{block}{Unanimity principle}
+\input{unanimity_principle}
+
+
+\begin{block}{Framework}
+\begin{itemize}
+\item[] {\bf Training set:}
+\begin{align*}
+\{(x_1,y_1),(x_2,y_2),\dots, (x_n,y_n)\}
+\end{align*} 
+\begin{itemize}
+\item[] Source atoms
+\input{source_atoms}
+\item[] Target atoms
+\input{target_atoms}
+\end{itemize}
+\end{itemize}
+\end{block}
+\end{block}
+
+\end{column} % End of the first column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % Begin a column which is two columns wide (column 2)
+
+
+%----------------------------------------------------------------------------------------
+%	MATERIALS
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Framework}
+\begin{itemize}
+\item[] {\bf Hypothesis space ($\sM$):}
+\vspace{1cm}
+\input{all_mappings}
+%Assumption: $M^* \in \sM$.
+\vspace{1cm}
+\item[] {\bf Consistent mappings ($\sC$):} 
+\vspace{1cm}
+\begin{align*} 
+\sC \eqdef \{ M \in \sM \mid \forall i, M(x_i) = y_i\}
+\end{align*}
+\input{all_possible_mappings}
+\vspace{1cm}
+\item[] {\bf Safe set ($\sF$):} 
+\vspace{1cm}
+\begin{align*}
+\sF \eqdef \{ x : |\{ M(x) : M \in \sC \}| = 1 \}
+\end{align*}
+\input{safe_sentences}
+\end{itemize}
+\end{block}
+\begin{block}{Linear algebraic formulation}
+
+\input{SandT}
+\input{M}
+\input{ycomputation}
+\end{block}
+
+\end{column} % End of column 2.1
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+\begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
+
+%----------------------------------------------------------------------------------------
+%	MATHEMATICAL SECTION
+%----------------------------------------------------------------------------------------
+
+\input{smt}
+\input{consistentSpace}
+\begin{block}{Integer linear programming}
+\begin{align*}
+  \sC = \{ M \in \pZ^{\ns \times \nt} : SM = T \}
+\end{align*}
+{\bf Proposition.}
+Let $v$ be a random vector.
+\vspace{-2cm}
+\begin{columns}[t]
+	\column{.5\textwidth}
+	\centering
+	\begin{align*}
+	{\bf min.} &\ xMv \\
+	{\bf s.t.} &\ SM=T\\
+	&\ M \succeq 0
+	\end{align*}
+	\column{0.5\textwidth}
+	\centering
+	\begin{align*}
+	{\bf max.} &\ xMv \\
+	{\bf s.t.} &\ SM=T\\
+	&\ M \succeq 0
+	\end{align*}
+\end{columns}
+With probability 1, $x \in \sF$ iff both ILPs have same answer.
+
+{\bf Computation. } Linear at training time, solving two ILPs at test time
+\end{block}
+
+
+\begin{block}{Linear programming}
+\begin{align*}
+\label{eqn:consistentLP}
+\sClp &\eqdef \{ M \in \pR^{\ns \times \nt} \mid \SF M = \TF \} \\
+\end{align*}
+{\bf Proposition.}
+	\label{prop:projection}
+Let $M_1$ and $M_2$ be two ``random enough'' mappings inside $\sClp$.
+With probability 1, $x \in \sFlp$ iff $x M_1 = x M_2$.
+
+%{\bf Algorithm. }We first find $M_1$ in the relative interior of $\sClp$ by solving a linear program. 
+%We then choose a random point on the ball around $M_1$ and project it back to $\sClp$.
+
+{\bf Computation. } Solving one LP at training time, linear at test time
+\end{block}
+
+\begin{block}{Linear system}
+
+\begin{align*}
+\sCls &\eqdef \{ M \in \R^{\ns \times \nt} \mid \SF M = \TF \}
+\end{align*}
+
+{\bf Proposition.}  The vector $x$ is in row space of $S$ iff $x \in \sFls$.
+	
+
+
+A linear combination of training examples:\\
+\centering
+ {\scriptsize M(\nl{area of Ohio}) = M(\nl{area of Iowa}) + M(\nl{cities in Ohio}) - M(\nl{cities in Iowa})}
+\input{row_sapce2.tex}
+
+\end{block}
+%{\bf Computation. } Linear in the training time two ILPs in the test time.
+
+
+%\begin{block}{Dual view}
+%\input{overview}
+%\footnotesize Larger training set $\implies$ fewer consistent mappings $\implies$ Larger safe set
+%\end{block} 
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.2
+
+
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+
+\begin{block}{Details}
+\begin{itemize}
+\item {\bf Source atoms:} Replace words with $n$-grams to handle polysemy
+\item {\bf Target atoms:} Add ordering information to predicates to reconstruct logical forms
+\item {\bf Removing noise:} Use a relax constraint, $\|SM-T\|_1 \le \gamma$, instead of $SM=T$
+\end{itemize}
+\end{block}
+
+\begin{block}{Other applications}
+\begin{itemize}
+\item {\bf Active learning:}
+Choose linearly independent sentences to be annotated
+
+\item {\bf Paraphrasing:}
+Find all sentences that yield the same thing under all consistent semantic mappings
+
+\item {\bf Learning from denotations:}
+ Training data consists of (question, answer) pairs
+
+\end{itemize}
+\end{block}
+
+\begin{block}{Results}
+\begin{itemize}
+{\bf \item[] Artificial dataset}\\
+\begin{itemize}
+\item[] Input/output vocabulary size is 70.
+\item[] {\scriptsize \nl{w34, w22, w17, w12} $\rightarrow$
+ \wl{p10,p15,p10,p20,p40,p47}}\\
+\end{itemize}
+\vspace{1cm}
+\input{artificial_data_results}
+
+\item[] {\bf GeoQuery dataset}\\
+\begin{itemize}
+\item[] 880 (question, logical form) pairs
+\item[] {\scriptsize \nl{how long is the mississippi} $\rightarrow$
+ \wl{(answer(len(riverid mississippi)))}}\\
+
+%\item[] 84\% had a unique way of reconstructing logical form
+\end{itemize}
+\vspace{1cm}
+\input{geoquery_results}
+
+\end{itemize}
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the third column
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame} % End of the enclosing frame
+
+\end{document}

@@ -1,0 +1,86 @@
+\newcommand{\scale}{0.5}
+
+
+
+\begin{tikzpicture}[ mapping/.style={circle,fill,scale = \scale}]
+
+\node[mapping] (A0) at (8,0) {};
+\node[mapping] (A1) at (8,1.5) {};
+\node[mapping] (A2) at (10,1) {};
+\node[mapping] (A3) at (6,5) {};
+\node[mapping] (A4) at (9,0) {};
+\node[mapping] (A5) at (6,2) {};
+\node[mapping] (A6) at (11,4) {};
+\node[mapping] (A7) at (8.5,4.5) {};
+\node[mapping] (A8) at (8,3.5) {};
+\node[mapping] (A9) at (8,2.5) {};
+\node[mapping] (A10) at (6,0) {};
+\node[mapping] (A11) at (11,1) {};
+
+\node (AA) [draw,fit=(A0) (A1) (A2)
+(A3) (A4) (A5) (A6) (A7) (A8) (A9)] {};
+
+
+
+\node[mapping] (B0) at (0,0) {};
+\node[mapping] (B1) at (0,1.5) {};
+\node[mapping] (B2) at (0,3) {};
+\node[mapping] (B3) at (0,4.5) {};
+
+\node (trainingset) [draw,fit=(B0) (B1) (B2) (B3)]  {};
+
+\draw[gray!25,-] (B0) -- (A1);
+\draw[gray!25,-] (B0) -- (A9);
+\draw[gray!25,-] (B0) -- (A8);
+
+\draw[gray!25,-] (B1) -- (A1);
+\draw[gray!25,-] (B1) -- (A9);
+\draw[gray!25,-] (B1) -- (A8);
+
+\draw[gray!25,-] (B2) -- (A1);
+\draw[gray!25,-] (B2) -- (A9);
+\draw[gray!25,-] (B2) -- (A8);
+
+\draw[gray!25,-] (B3) -- (A1);
+\draw[gray!25,-] (B3) -- (A9);
+\draw[gray!25,-] (B3) -- (A8);
+
+
+\draw[gray!25,-] (B0) -- (A2);
+\draw[gray!25,-] (B1) -- (A7);
+\draw[gray!25,-] (B2) -- (A4);
+\draw[gray!25,-] (B3) -- (A3);
+\draw[gray!25,-] (B1) -- (A0);
+\draw[gray!25,-] (B0) -- (A0);
+\draw[gray!25,-] (B2) -- (A3);
+
+
+\node[yshift = 1cm] (description) at (trainingset.north) {Training set};
+
+\node[yshift=1cm] (B) at (AA.north) {\Large $\sM$};
+\node[circle, draw, fit=(A9) (A8) (A1),inner sep=0] (c)  {};
+\node[yshift=0.4cm,xshift=1.2cm] (B) at (c.north) {\Large $\sC$};
+
+\newcommand{\xx}{18}
+\newcommand{\yy}{2}
+\newcommand{\rr}{3}
+\newcommand{\rb}{10}
+\newcommand{\len}{5}
+
+\newcommand{\x2}{0}
+\newcommand{\y2}{-4}
+
+
+\draw[thick] (\xx+\rr/2,\yy) circle (\rr);
+\draw[thick] (\xx-\rr/2,\yy) circle (\rr);
+\draw[thick] (\xx, \yy+2*\rr/3) circle (\rr);
+\begin{scope}[fill = green!30]
+    \clip (\xx+\rr/2,\yy) circle (\rr);
+    \clip (\xx-\rr/2,\yy) circle (\rr);
+	\clip (\xx, \yy+2*\rr/3) circle (\rr);
+\fill (\xx+\rr/2,\yy) circle (\rr);
+\end{scope}
+
+
+\node[yshift=0.5cm] (F) at (\xx,\yy) {\Large $\sF$};
+\end{tikzpicture}

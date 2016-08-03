@@ -1,0 +1,52 @@
+
+\begin{tikzpicture}
+\newcommand{\sscale}{0.6}
+	\node (A)[scale=\sscale] at (0,0){
+		\begin{tabular}{|l|}
+		\hline \bf mapping 1 \\ \hline
+		 \nl{cities} $\rightarrow$  \{\wl{city}\} \\
+		 \nl{in} $\rightarrow$  \{\} \\
+		 \nl{of} $\rightarrow$  \{\} \\
+		 \nl{area} $\rightarrow$  \{\wl{area}\} \\
+		 \nl{Iowa} $\rightarrow$  \{\wl{IA}\} \\
+		\nl{Ohio} $\rightarrow$  \{\wl{OH}\} \\
+		\hline
+		\end{tabular}
+	};
+	
+	\node (B) [scale=\sscale]at (5.5,0){
+		\begin{tabular}{|l|}
+		\hline \bf mapping 2 \\ \hline
+		\nl{cities} $\rightarrow$  \{\} \\
+		\nl{in} $\rightarrow$  \{\} \\
+		\nl{of} $\rightarrow$  \{\} \\
+		\nl{area} $\rightarrow$  \{\} \\
+		\nl{Iowa} $\rightarrow$  \{\} \\
+		\nl{Ohio} $\rightarrow$  \{\} \\
+		\hline
+		\end{tabular}
+	};
+	
+	\node (C) [scale=\sscale]at (16.5,0){
+		\begin{tabular}{|l|}
+		\hline \bf mapping k \\ \hline
+		\nl{cities} $\rightarrow$  \{\wl{city,area,IA,OH}\} \\
+		\nl{in} $\rightarrow$  \{\} \\
+		\nl{of} $\rightarrow$  \{\} \\
+		\nl{area} $\rightarrow$  \{\} \\
+		\nl{Iowa} $\rightarrow$  \{\} \\
+		\nl{Ohio} $\rightarrow$  \{\wl{area,area,city,city}\} \\
+		\hline
+		\end{tabular}
+	};
+
+
+\node (3dots)[] at (9,0){...};
+
+	
+
+      
+ 
+\end{tikzpicture}
+
+
